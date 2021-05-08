@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <title>{% block title %}MotoBazar{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <!-- Add additional CSS in static file -->
+    {% load static %}
+    {% block css %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body class="bg-secondary">
+    <header class="jumbotron-fluid bg-success p-3">
+        <h1 class="text-center display-3">MotoBazar</h1>
+    </header>
+    <main class="container bg-secondary">
+    {% block content %}{% endblock %}
+    </main>
+    <footer class="bg-success jumbotron-fluid">
+        <p class="text-center">&copy; David Dumbrovský 2021 - SŠPU Opava - IT4</p>
+    </footer>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

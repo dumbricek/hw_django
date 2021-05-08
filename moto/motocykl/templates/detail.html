@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Detail motobazaru{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+    <hr>
+    <h2 class="text-center">{{ moto.nazev }}</h2>
+    <hr>
+    <div class="row">
+        <div class="col text-center">
+            <p><img src="{{ moto.foto.url }}" alt="{{ moto.nazev }}" width="75%"></p>
+        </div>
+        <div class="col">
+            <p><b>Cena:</b> {{ moto.cena }} kč</p>
+            <hr>
+            <p><b>Opotřebení:</b> {% for star in "x"|ljust:moto.stav %}<i class="fa fa-star"></i>{% endfor %}</p>
+            <hr>
+            <p><b>Zařazení:</b> {{ moto.typ.oblast }} - {{ moto.typ.oznaceni_typu }}</p>
+            <hr>
+            <p><b>Popis:</b> {{ moto.popis }}</p>
+        </div>
+    </div>
+{% endblock %}

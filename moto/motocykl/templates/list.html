@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Přehled motorek{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+    <hr>
+    {% for moto in moto_list %}
+        <div class="row">
+            <div class="col-sm-4 text-center">
+                <p><img src="{{ moto.foto.url }}" alt="{{ moto.nazev }}" width="50%"></p>
+            </div>
+            <div class="col-sm-8">
+                <h3><a href="{% url 'detail' moto.pk %}">{{ moto.nazev }}</a></h3>
+                <hr>
+                <p><b>Cena:</b> {{ moto.cena }} kč</p>
+                <hr>
+                <p><b>Zařazení</b> {{moto.typ.oblast}} - {{moto.typ.oznaceni_typu}}</p>
+                <hr>
+                <p><b>Opotřebení:</b> {% for star in "x"|ljust:moto.stav %}<i class="fa fa-star"></i>{% endfor %}</p>
+        </div>
+            </div>
+        </div>
+        <hr>
+    {% endfor %}
+{% endblock %}
